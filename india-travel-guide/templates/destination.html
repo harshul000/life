@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ destination.name }} - {{ destination.tagline }} | Explore India</title>
+    <meta name="description" content="{{ destination.description[:150] }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">🇮🇳 Explore India</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#destinations">Destinations</a></li>
+                <li><a href="/#map">Map</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Destination Hero -->
+    <section class="destination-hero"
+        style="background-image: url('{{ url_for('static', filename='images/destinations/' + destination.id + '.jpg') }}');">
+        <div class="destination-hero-content">
+            <h1>{{ destination.name }}</h1>
+            <p class="tagline">{{ destination.tagline }}</p>
+            <div class="card-meta">
+                <span class="meta-item">
+                    <span class="meta-icon">📍</span>
+                    {{ destination.region }}
+                </span>
+                <span class="meta-item">
+                    <span class="meta-icon">🌤️</span>
+                    {{ destination.best_time }}
+                </span>
+                <span class="meta-item">
+                    <span class="meta-icon">⏱️</span>
+                    {{ destination.duration }}
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destination Details -->
+    <section class="detail-section">
+        <div class="detail-grid">
+            <!-- Main Content -->
+            <div class="detail-main">
+                <h2>About {{ destination.name }}</h2>
+                <p>{{ destination.description }}</p>
+
+                <h3 class="mt-3">Top Highlights</h3>
+                <ul class="highlights-list">
+                    {% for highlight in destination.highlights %}
+                    <li>{{ highlight }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h3 class="mt-3">Activities to Do</h3>
+                <ul class="activities-list">
+                    {% for activity in destination.activities %}
+                    <li>{{ activity }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="detail-sidebar">
+                <!-- Quick Info -->
+                <div class="info-card">
+                    <h3>Quick Information</h3>
+                    <div class="meta-item mb-1">
+                        <span class="meta-icon">🌤️</span>
+                        <div>
+                            <strong>Best Time to Visit</strong><br>
+                            {{ destination.best_time }}
+                        </div>
+                    </div>
+                    <div class="meta-item mb-1">
+                        <span class="meta-icon">⏱️</span>
+                        <div>
+                            <strong>Recommended Duration</strong><br>
+                            {{ destination.duration }}
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📍</span>
+                        <div>
+                            <strong>Location</strong><br>
+                            {{ destination.region }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to Reach -->
+                <div class="info-card">
+                    <h3>How to Reach</h3>
+                    <p>{{ destination.how_to_reach }}</p>
+                </div>
+
+                <!-- Travel Tips -->
+                <div class="info-card">
+                    <h3>Travel Tips</h3>
+                    <ul class="tips-list">
+                        {% for tip in destination.tips %}
+                        <li>{{ tip }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="text-center mt-3">
+            <a href="/" class="cta-button">← Back to All Destinations</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Explore India. Discover the beauty of Incredible India.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
