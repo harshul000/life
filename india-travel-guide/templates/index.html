@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore India - Discover the Best Travel Destinations</title>
-    <meta name="description" content="Discover India's top 10 travel destinations with detailed guides, activities, and travel tips. Plan your perfect Indian adventure.">
+    <meta name="description"
+        content="Discover India's top 10 travel destinations with detailed guides, activities, and travel tips. Plan your perfect Indian adventure.">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -25,9 +28,12 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Discover Incredible India</h1>
-            <p>Explore the most breathtaking destinations across India. From snow-capped mountains to pristine beaches, ancient ruins to vibrant cities.</p>
+            <p>Explore the most breathtaking destinations across India. From snow-capped mountains to pristine beaches,
+                ancient ruins to vibrant cities.</p>
             <button class="cta-button" onclick="scrollToDestinations()">Start Exploring</button>
         </div>
     </section>
@@ -38,13 +44,8 @@
             <!-- Search Box -->
             <div class="search-box">
                 <span class="search-icon">🔍</span>
-                <input 
-                    type="text" 
-                    class="search-input" 
-                    id="searchInput" 
-                    placeholder="Search destinations..."
-                    autocomplete="off"
-                >
+                <input type="text" class="search-input" id="searchInput" placeholder="Search destinations..."
+                    autocomplete="off">
             </div>
 
             <!-- Interactive Map -->
@@ -76,4 +77,5 @@
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
+
 </html>
